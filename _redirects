@@ -1,1 +1,7 @@
+# Canonicalize to non-www + HTTPS (matches canonical tag / structured data)
+https://www.gmmdistributors.xyz/*  https://gmmdistributors.xyz/:splat  301!
+http://www.gmmdistributors.xyz/*   https://gmmdistributors.xyz/:splat  301!
+http://gmmdistributors.xyz/*       https://gmmdistributors.xyz/:splat  301!
+
+# Normalize index.html to root
 /index.html    /    301
