@@ -83,6 +83,22 @@ section{padding:5.5rem 0;}
 .info-panel dt:first-child{margin-top:0;}
 .info-panel dd{margin-bottom:0;color:#3A4230;}
 .notice-panel{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--wheat);border-radius:2px;padding:1.5rem 1.75rem;}
+.product-media{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--forest);}
+.product-media img{width:100%;height:auto;display:block;aspect-ratio:4/3;object-fit:cover;}
+.product-media .cat-tag{position:absolute;left:1.1rem;bottom:.9rem;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.55);z-index:2;}
+.product-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);pointer-events:none;}
+.thumb-row{display:flex;gap:.6rem;margin-top:.6rem;}
+.thumb-row button{padding:0;border:2px solid transparent;border-radius:2px;overflow:hidden;width:64px;height:64px;background:none;cursor:pointer;}
+.thumb-row button.active{border-color:var(--wheat);}
+.thumb-row img{width:100%;height:100%;object-fit:cover;display:block;}
+.dosage-table{width:100%;border-collapse:collapse;font-size:.92rem;}
+.dosage-table th,.dosage-table td{border:1px solid var(--line);padding:.55rem .75rem;text-align:left;}
+.dosage-table th{background:var(--bg-alt);font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--soil);}
+.claims-list li{margin-bottom:.4rem;}
+.card-packet .packet-photo{position:relative;height:180px;overflow:hidden;background:var(--forest);}
+.card-packet .packet-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.card-packet .packet-photo .cat-tag{position:absolute;left:1rem;bottom:.8rem;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.55);z-index:2;}
+.card-packet .packet-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);}
 footer{background:var(--forest);color:#D9D6C2;padding:3.5rem 0 1.5rem;}
 footer h5{color:#fff;font-family:'Bitter',serif;}
 footer a{color:#D9D6C2;text-decoration:none;}
@@ -132,23 +148,50 @@ footer a:hover{color:var(--wheat-2);}
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-5">
-        <div class="card-packet">
+        <!-- Photo card: shown when the product has real photographs -->
+        <div id="p-media-wrap" style="display:none;">
+          <div class="product-media">
+            <img id="p-image" src="" alt="" width="1100" height="825" loading="eager">
+            <p class="cat-tag mb-0" id="p-category-media">Category</p>
+          </div>
+          <div class="thumb-row" id="p-thumbs"></div>
+        </div>
+        <!-- Icon card: fallback for products without photographs on file -->
+        <div class="card-packet" id="p-icon-wrap" style="display:none;">
           <div class="packet-top" style="padding-bottom:2.5rem;">
             <p class="cat-tag mb-2" id="p-category">Category</p>
             <svg width="56" height="56" viewBox="0 0 46 46" fill="none" id="p-icon"><circle cx="23" cy="23" r="21" stroke="#E3B94E" stroke-width="1.5"/></svg>
           </div>
         </div>
+
         <div class="info-panel mt-4">
           <p class="eyebrow mb-3">Product Information</p>
           <dl class="mb-0">
             <dt>Product Type</dt>
             <dd id="p-type">Please contact us for verified information.</dd>
+            <dt id="p-composition-dt" style="display:none;">Composition</dt>
+            <dd id="p-composition" style="display:none;"></dd>
             <dt>Available Pack Size</dt>
             <dd id="p-pack">Please contact us for verified information.</dd>
             <dt>Application</dt>
             <dd id="p-application">Please contact us for verified information.</dd>
             <dt>Availability</dt>
             <dd id="p-availability">Please contact us for verified information.</dd>
+          </dl>
+        </div>
+
+        <!-- Marketer / manufacturer panel: shown only when verified label details are available -->
+        <div class="info-panel mt-4" id="p-mfg-panel" style="display:none;">
+          <p class="eyebrow mb-3">Marketed &amp; Manufactured By</p>
+          <dl class="mb-0">
+            <dt>Marketed By</dt>
+            <dd id="p-marketer"></dd>
+            <dt>Manufactured By</dt>
+            <dd id="p-manufacturer"></dd>
+            <dt>Batch / Mfg. Date</dt>
+            <dd id="p-batch"></dd>
+            <dt>Expiry</dt>
+            <dd id="p-expiry"></dd>
           </dl>
         </div>
       </div>
@@ -162,6 +205,19 @@ footer a:hover{color:var(--wheat-2);}
 
         <h3 class="h5">Key Features</h3>
         <ul id="p-features" class="text-muted"></ul>
+
+        <!-- Dosage panel: shown only when a verified label dosage is available -->
+        <div id="p-dosage-wrap" style="display:none;">
+          <h3 class="h5 mt-4">Dosage &amp; Application Rate</h3>
+          <div id="p-dosage" class="text-muted"></div>
+          <p class="text-muted small mt-2">As stated on the product label. Please confirm against the physical label before use.</p>
+        </div>
+
+        <!-- Label claims panel: shown only when the product label states specific claims -->
+        <div id="p-claims-wrap" style="display:none;">
+          <h3 class="h5 mt-4">Claims Stated on the Product Label</h3>
+          <ul id="p-claims" class="text-muted claims-list"></ul>
+        </div>
 
         <h3 class="h5 mt-4">Usage Information</h3>
         <p id="p-usage" class="text-muted"></p>
@@ -246,6 +302,10 @@ const PRODUCTS = [
     name: "Organic Manure Mixture",
     category: "Organic Manure",
     overview: "An organic manure product offered for agricultural applications.",
+    // Sample/placeholder image reused from the catalogue — replace with dedicated product photography when available.
+    images: [
+      { src: "images/products/micro-max-jackpot-soil-booster.jpg", alt: "Organic Manure Mixture — sample image, to be replaced with dedicated product photography" }
+    ],
     features: [
       "Offered for agricultural applications",
       "Part of our organic manure product range",
@@ -258,11 +318,113 @@ const PRODUCTS = [
     name: "Bio Organic Manure",
     category: "Organic Manure",
     overview: "A bio-organic manure product included in our agricultural product portfolio.",
+    // Sample/placeholder image reused from the catalogue — replace with dedicated product photography when available.
+    images: [
+      { src: "images/products/premium-jackpot-soil-booster.jpg", alt: "Bio Organic Manure — sample image, to be replaced with dedicated product photography" }
+    ],
     features: [
       "Included in our agricultural product portfolio",
       "Part of our organic manure product range",
       "Contact us for verified composition and specifications"
     ],
+    icon: "sprout"
+  },
+  {
+    id: "premium-jackpot-soil-booster",
+    name: "Premium Jackpot Soil Booster",
+    category: "Soil Booster",
+    overview: "Premium Jackpot Soil Booster is an agricultural soil booster marketed by GMM Distributors Pvt. Ltd. It is presented for use with a range of agricultural crops and vegetables.",
+    images: [
+      { src: "images/products/premium-jackpot-soil-booster.jpg", alt: "Premium Jackpot Soil Booster tub label showing crops and dosage panel" }
+    ],
+    type: "Soil Booster",
+    pack: "Please contact us for verified pack sizes.",
+    application: "For a range of agricultural crops and vegetables, as per label instructions.",
+    availability: "Please contact us for current availability.",
+    features: [
+      "Formulated for a range of agricultural crops and vegetables",
+      "Marketed by GMM Distributors Pvt. Ltd.",
+      "For agriculture use only — always follow the label instructions",
+      "Contact us for verified dosage, pack sizes and technical documentation"
+    ],
+    marketer: "GMM Distributors Pvt. Ltd.",
+    icon: "leaf"
+  },
+  {
+    id: "micro-max-jackpot-soil-booster",
+    name: "Micro Max Jackpot Soil Booster",
+    category: "Soil Booster",
+    overview: "Micro Max Jackpot Soil Booster is a soil booster marketed by GMM Distributors Pvt. Ltd., with a clearly labelled crop-wise dosage schedule for rice, maize, beans, potatoes, brinjal, tomatoes, other vegetables, fruits and trees.",
+    images: [
+      { src: "images/products/micro-max-jackpot-soil-booster.jpg", alt: "Micro Max Jackpot Soil Booster label showing dosage table for rice, potato, vegetables and fruit trees" }
+    ],
+    type: "Soil Booster",
+    pack: "5 kg",
+    application: "Rice, maize, beans, potato, brinjal, tomato, other vegetables, fruits and trees — see dosage table.",
+    availability: "Please contact us for current availability.",
+    dosage: {
+      type: "table",
+      headers: ["Crop", "Dosage"],
+      rows: [
+        ["Rice, Maize, Beans", "3 kg / acre"],
+        ["Potato, Brinjal, Tomato", "4 kg / acre"],
+        ["Other Vegetables", "4 kg / acre"],
+        ["Fruits &amp; Other Trees", "70–80 gm / tree"]
+      ]
+    },
+    claims: [
+      "Supports plant uptake of micro &amp; macro nutrients",
+      "Supports germination and seedling vigour",
+      "Supports the quality of flowers, fruits and produce",
+      "Supports reproductive growth of crops",
+      "Supports soil health",
+      "Helps resist fungal disease"
+    ],
+    features: [
+      "Clearly labelled crop-wise dosage schedule",
+      "Available in 5 kg packs",
+      "Marketed by GMM Distributors Pvt. Ltd.",
+      "For agriculture use only"
+    ],
+    marketer: "GMM Distributors Pvt. Ltd., Kolkata, West Bengal — 9433276012",
+    manufacturer: "Organic Agro Science Laboratory, Madurai, Tamil Nadu — 9083732101",
+    batch: "007/25 (Mfg. Date: Jul 25)",
+    expiry: "3 years from date of manufacturing",
+    icon: "leaf"
+  },
+  {
+    id: "nirmala-agri-vita-green-gold",
+    name: "Nirmala Agri Vita Green Gold – Humic Granules",
+    category: "Humic Granules",
+    overview: "Nirmala Agri Vita Green Gold is a granulated soil conditioner combining humic, fulvic, amino, seaweed and bentonite, marketed by GMM Distributors Pvt. Ltd. for use with vegetables and fruit crops.",
+    images: [
+      { src: "images/products/nirmala-agri-vita-green-gold-1.jpg", alt: "Nirmala Agri Vita Green Gold humic granules pack label showing crops and dosage" },
+      { src: "images/products/nirmala-agri-vita-green-gold-2.jpg", alt: "Nirmala Agri Vita Green Gold humic granules pack label showing composition and batch details" }
+    ],
+    type: "Humic Granules / Granulated Soil Conditioner",
+    composition: "Humic, Fulvic, Amino, Seaweed, Bentonite (as stated on the product label)",
+    pack: "1 kg, 10 kg",
+    application: "Granulated soil conditioner for vegetable and fruit crops, as per label instructions.",
+    availability: "Please contact us for current availability.",
+    dosage: { type: "text", text: "10–12 kg per acre, depending on crop (as stated on the product label)." },
+    claims: [
+      "Soil conditioning",
+      "Supports plant disease resistance and production",
+      "Helps regulate soil pH",
+      "Increases nutrient uptake",
+      "Label states reduction of chemical fertilizer use up to 40%",
+      "Label states increased yield up to 40%"
+    ],
+    features: [
+      "Combination of humic, fulvic, amino, seaweed and bentonite",
+      "Granulated soil conditioner for vegetable and fruit crops",
+      "Available in 1 kg and 10 kg packs",
+      "Marketed by GMM Distributors Pvt. Ltd."
+    ],
+    marketer: "GMM Distributors Pvt. Ltd., Kolkata, West Bengal — 9433276012",
+    manufacturer: "Organic Agro Science Laboratory, Madurai, Tamil Nadu — 9083732101",
+    batch: "007/25 (Mfg. Date: Jul 25)",
+    expiry: "3 years from date of manufacturing",
     icon: "sprout"
   }
 ];
@@ -274,6 +436,21 @@ const ICONS = {
 function qs(name) {
   const params = new URLSearchParams(window.location.search);
   return params.get(name);
+}
+
+function setDisplay(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = show ? '' : 'none';
+}
+
+function renderDosage(dosage) {
+  if (!dosage) return '';
+  if (dosage.type === 'table') {
+    const head = '<tr>' + dosage.headers.map(h => `<th>${h}</th>`).join('') + '</tr>';
+    const body = dosage.rows.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('');
+    return `<div class="table-responsive"><table class="dosage-table"><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
+  }
+  return `<p class="mb-0">${dosage.text}</p>`;
 }
 
 function renderProduct() {
@@ -288,20 +465,106 @@ function renderProduct() {
   document.getElementById('p-overview').textContent = p.overview;
   document.getElementById('p-usage').textContent = "Please refer to the applicable product label and technical documentation for recommended use, dosage, application method, crop suitability, safety precautions and other technical information.";
 
+  // Product Information panel
+  document.getElementById('p-type').textContent = p.type || "Please contact us for verified information.";
+  document.getElementById('p-pack').textContent = p.pack || "Please contact us for verified information.";
+  document.getElementById('p-application').textContent = p.application || "Please contact us for verified information.";
+  document.getElementById('p-availability').textContent = p.availability || "Please contact us for verified information.";
+
+  if (p.composition) {
+    document.getElementById('p-composition').textContent = p.composition;
+    setDisplay('p-composition-dt', true);
+    setDisplay('p-composition', true);
+  } else {
+    setDisplay('p-composition-dt', false);
+    setDisplay('p-composition', false);
+  }
+
+  // Marketer / manufacturer panel
+  if (p.marketer || p.manufacturer || p.batch || p.expiry) {
+    document.getElementById('p-marketer').textContent = p.marketer || "Please contact us for verified information.";
+    document.getElementById('p-manufacturer').textContent = p.manufacturer || "Please contact us for verified information.";
+    document.getElementById('p-batch').textContent = p.batch || "Please contact us for verified information.";
+    document.getElementById('p-expiry').textContent = p.expiry || "Please contact us for verified information.";
+    setDisplay('p-mfg-panel', true);
+  } else {
+    setDisplay('p-mfg-panel', false);
+  }
+
+  // Dosage panel
+  if (p.dosage) {
+    document.getElementById('p-dosage').innerHTML = renderDosage(p.dosage);
+    setDisplay('p-dosage-wrap', true);
+  } else {
+    setDisplay('p-dosage-wrap', false);
+  }
+
+  // Label claims panel
+  if (p.claims && p.claims.length) {
+    document.getElementById('p-claims').innerHTML = p.claims.map(c => `<li>${c}</li>`).join('');
+    setDisplay('p-claims-wrap', true);
+  } else {
+    setDisplay('p-claims-wrap', false);
+  }
+
+  // Product photography vs. fallback icon
+  let primaryImage = null;
+  if (p.images && p.images.length) {
+    primaryImage = p.images[0];
+    const mainImg = document.getElementById('p-image');
+    mainImg.src = p.images[0].src;
+    mainImg.alt = p.images[0].alt;
+    document.getElementById('p-category-media').textContent = p.category;
+
+    const thumbRow = document.getElementById('p-thumbs');
+    if (p.images.length > 1) {
+      thumbRow.innerHTML = p.images.map((img, i) => `
+        <button type="button" class="${i === 0 ? 'active' : ''}" data-src="${img.src}" data-alt="${img.alt.replace(/"/g,'&quot;')}" aria-label="Show image ${i + 1} of ${p.name}">
+          <img src="${img.src}" alt="" loading="lazy">
+        </button>
+      `).join('');
+      thumbRow.style.display = '';
+      thumbRow.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          mainImg.src = btn.getAttribute('data-src');
+          mainImg.alt = btn.getAttribute('data-alt');
+          thumbRow.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    } else {
+      thumbRow.innerHTML = '';
+      thumbRow.style.display = 'none';
+    }
+    setDisplay('p-media-wrap', true);
+    setDisplay('p-icon-wrap', false);
+  } else {
+    const iconSvg = document.getElementById('p-icon');
+    iconSvg.innerHTML = '<circle cx="23" cy="23" r="21" stroke="#E3B94E" stroke-width="1.5"/>' + (ICONS[p.icon] || ICONS['leaf']);
+    setDisplay('p-media-wrap', false);
+    setDisplay('p-icon-wrap', true);
+  }
+
+  const featWrap = document.getElementById('p-features');
+  featWrap.innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
+
   // SEO: keep description, canonical, Open Graph/Twitter tags and structured data in sync with the product shown
   const pageTitle = p.name + " | GMM Distributors Private Limited";
   const pageDesc = p.overview + " Contact GMM Distributors Private Limited for availability and specifications.";
   const pageUrl = "https://www.gmmdistributors.in/product-detail.html?id=" + p.id;
+  const ogImage = primaryImage ? "https://www.gmmdistributors.in/" + primaryImage.src : "https://www.gmmdistributors.in/images/gmm-logo.jpg";
 
   document.getElementById('meta-description').setAttribute('content', pageDesc);
   document.getElementById('canonical-link').setAttribute('href', pageUrl);
   document.getElementById('og-title').setAttribute('content', pageTitle);
   document.getElementById('og-description').setAttribute('content', pageDesc);
   document.getElementById('og-url').setAttribute('content', pageUrl);
+  document.querySelector('meta[property="og:image"]').setAttribute('content', ogImage);
   document.getElementById('twitter-title').setAttribute('content', pageTitle);
   document.getElementById('twitter-description').setAttribute('content', pageDesc);
+  document.querySelector('meta[name="twitter:image"]').setAttribute('content', ogImage);
 
-  document.getElementById('product-jsonld').textContent = JSON.stringify({
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": p.name,
@@ -309,22 +572,20 @@ function renderProduct() {
     "description": p.overview,
     "url": pageUrl,
     "brand": { "@type": "Organization", "name": "GMM Distributors Private Limited" }
-  });
+  };
+  if (p.images && p.images.length) {
+    jsonLd.image = p.images.map(img => "https://www.gmmdistributors.in/" + img.src);
+  }
+  document.getElementById('product-jsonld').textContent = JSON.stringify(jsonLd);
 
-  const iconSvg = document.getElementById('p-icon');
-  iconSvg.innerHTML = '<circle cx="23" cy="23" r="21" stroke="#E3B94E" stroke-width="1.5"/>' + (ICONS[p.icon] || ICONS['leaf']);
-
-  const featWrap = document.getElementById('p-features');
-  featWrap.innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
-
-  const related = PRODUCTS.filter(x => x.id !== p.id);
+  const related = PRODUCTS.filter(x => x.id !== p.id).slice(0, 3);
   document.getElementById('related-products').innerHTML = related.map(r => `
     <div class="col-md-6 col-lg-4">
       <div class="card-packet">
-        <div class="packet-top">
-          <p class="cat-tag mb-2">${r.category}</p>
-          <svg width="40" height="40" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="21" stroke="#E3B94E" stroke-width="1.5"/>${ICONS[r.icon] || ICONS['leaf']}</svg>
-        </div>
+        ${ r.images && r.images.length
+          ? `<div class="packet-photo"><img src="${r.images[0].src}" alt="${r.images[0].alt.replace(/"/g,'&quot;')}" loading="lazy"><p class="cat-tag mb-0">${r.category}</p></div>`
+          : `<div class="packet-top"><p class="cat-tag mb-2">${r.category}</p><svg width="40" height="40" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="21" stroke="#E3B94E" stroke-width="1.5"/>${ICONS[r.icon] || ICONS['leaf']}</svg></div>`
+        }
         <div class="packet-body">
           <h3 style="font-size:1.05rem;">${r.name}</h3>
           <p>${r.overview}</p>
