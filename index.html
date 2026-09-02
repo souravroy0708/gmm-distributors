@@ -226,10 +226,37 @@ section{padding:5.5rem 0;}
 .feature-card{background:var(--white);border:1px solid var(--line);border-radius:2px;padding:1.75rem;height:100%;transition:transform .18s ease, box-shadow .18s ease;}
 .feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
 .feature-card .ico{width:46px;height:46px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
-.hero{position:relative;background:repeating-linear-gradient(100deg, rgba(43,58,36,0.05) 0px, rgba(43,58,36,0.05) 2px, transparent 2px, transparent 34px), var(--bg);padding:6rem 0 5rem;overflow:hidden;border-bottom:1px solid var(--line);}
+.hero{position:relative;background:repeating-linear-gradient(100deg, rgba(43,58,36,0.05) 0px, rgba(43,58,36,0.05) 2px, transparent 2px, transparent 34px), var(--bg);padding:3.5rem 0 5rem;overflow:hidden;border-bottom:1px solid var(--line);}
 .hero .eyebrow{margin-bottom:1rem;}
 .hero h1{font-size:clamp(2.2rem,4.4vw,3.4rem);line-height:1.12;margin-bottom:1.4rem;}
 .hero p.lead-copy{max-width:46ch;color:#3A4230;font-size:1.08rem;}
+
+/* ===== homepage featured slider ===== */
+.home-slider{background:var(--bg);padding:2.25rem 0 0;}
+.home-slider .slider-frame{position:relative;border:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0;box-shadow:0 20px 50px rgba(28,36,22,0.16);overflow:hidden;}
+.home-slider .slide-visual{position:relative;width:100%;height:clamp(260px,40vw,460px);overflow:hidden;background:#12180F;}
+.home-slider .slide-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(20px) brightness(.55) saturate(1.15);transform:scale(1.18);}
+.home-slider .slide-fg{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;display:block;}
+.home-slider .slider-badge{position:absolute;top:1.25rem;left:1.25rem;z-index:5;background:rgba(241,238,225,.95);color:var(--forest);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.5rem .9rem;border-radius:var(--radius);border:1px solid var(--line);}
+.home-slider .gallery-pill{position:absolute;top:1.25rem;right:1.25rem;z-index:5;background:var(--wheat);color:#1C2416;font-weight:700;font-size:.8rem;padding:.55rem 1.1rem;border-radius:30px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .18s ease, background .18s ease;}
+.home-slider .gallery-pill:hover{background:var(--wheat-2);transform:translateY(-2px);color:#1C2416;}
+.home-slider .carousel-indicators{margin-bottom:.85rem;gap:.35rem;z-index:5;}
+.home-slider .carousel-indicators [data-bs-target]{background-color:rgba(255,255,255,.55);width:22px;height:4px;border-radius:2px;opacity:1;border:0;transition:background-color .2s ease, width .2s ease;}
+.home-slider .carousel-indicators [data-bs-target].active{background-color:var(--wheat-2);width:34px;}
+.home-slider .carousel-control-prev,.home-slider .carousel-control-next{width:7%;opacity:0;transition:opacity .2s ease;z-index:4;}
+.home-slider .slider-frame:hover .carousel-control-prev,.home-slider .slider-frame:hover .carousel-control-next{opacity:1;}
+.home-slider .carousel-control-prev-icon,.home-slider .carousel-control-next-icon{background-color:rgba(28,36,22,.55);border-radius:50%;padding:1.1rem;background-size:46% 46%;}
+.home-slider .carousel-fade .carousel-item{transition:opacity .5s ease-in-out;}
+.home-slider .slider-caption-bar{background:var(--white);border:1px solid var(--line);border-top:0;border-radius:0 0 var(--radius) var(--radius);padding:1rem 1.5rem;min-height:64px;display:flex;flex-direction:column;justify-content:center;}
+.home-slider .cap-eyebrow{margin:0;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soil);font-weight:600;}
+.home-slider .cap-title{margin:.3rem 0 0;font-family:'Bitter',serif;font-weight:700;color:var(--forest);font-size:1.02rem;line-height:1.35;}
+@media (max-width:575.98px){
+  .home-slider .slider-badge{font-size:.6rem;padding:.4rem .65rem;}
+  .home-slider .gallery-pill{font-size:.72rem;padding:.45rem .8rem;}
+  .home-slider .gallery-pill svg{width:11px;height:11px;}
+  .home-slider .slider-caption-bar{padding:.85rem 1.15rem;}
+  .home-slider .cap-title{font-size:.92rem;}
+}
 .card-packet{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .18s ease, box-shadow .18s ease;height:100%;}
 .card-packet:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
 .card-packet .packet-top{background:var(--forest);color:#fff;padding:1.5rem 1.25rem 2.1rem;position:relative;}
@@ -276,6 +303,93 @@ footer a:hover{color:var(--wheat-2);}
 </nav>
 
 <main id="main-content">
+<!-- FEATURED SLIDER -->
+<section class="home-slider">
+  <div class="container">
+    <div class="slider-frame">
+      <span class="slider-badge">Est. 2020 &middot; West Bengal</span>
+      <a href="gallery.html" class="gallery-pill" aria-label="View our full photo and video gallery">
+        View Full Gallery
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div id="homeSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="1000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="7" aria-label="Slide 8"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-1.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-1.jpg" alt="GMM Distributors featured in Bardhaman Jyoti newspaper for a farmer training and awareness event">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-2.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-2.jpg" alt="Bengali organic farming awareness message from GMM Distributors — think organic, stay healthy">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-3.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-3.jpg" alt="GMM Distributors message — debt-free farmers, chemical-free food, farmer-suicide-free India">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-4.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-4.jpg" alt="GMM Distributors message — organic farmer, smiling face, organic farming is the assurance of good health">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-5.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-5.jpg" alt="Save the soil awareness message from GMM Distributors, featuring a farmer in the field">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-6.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-6.jpg" alt="GMM Distributors message — pesticides are poison, not medicine, and cause continuous harm">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-7.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-7.jpg" alt="GMM Distributors message on pollution in water and soil affecting vegetables and fruits">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slide-visual">
+              <img class="slide-bg" src="images/slider/slide-8.jpg" alt="" aria-hidden="true">
+              <img class="slide-fg" src="images/slider/slide-8.jpg" alt="GMM Distributors message — a healthy environment through organic farming, together">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeSlider" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homeSlider" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="slider-caption-bar">
+      <p class="cap-eyebrow" id="sliderCapEyebrow">In The News</p>
+      <p class="cap-title" id="sliderCapTitle">Featured in Bardhaman Jyoti for our farmer outreach program</p>
+    </div>
+  </div>
+</section>
+
 <!-- HERO -->
 <header class="hero">
   <div class="container">
@@ -605,5 +719,30 @@ footer a:hover{color:var(--wheat-2);}
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+  var captions = [
+    { eyebrow: "In The News", title: "Featured in Bardhaman Jyoti for our farmer outreach program" },
+    { eyebrow: "Organic Farming, Healthy Living", title: "Think organic, act sincerely — a healthy earth keeps us healthy" },
+    { eyebrow: "Our Mission", title: "Debt-free farmers, chemical-free food, a farmer-suicide-free India" },
+    { eyebrow: "Organic Farming, Healthy Living", title: "An organic farmer is a smiling farmer — organic farming means the assurance of good health" },
+    { eyebrow: "Save The Soil", title: "Protecting the soil today, for a healthier harvest tomorrow" },
+    { eyebrow: "Farmer Awareness", title: "Pesticides are not medicine — remember, pesticides mean poison" },
+    { eyebrow: "Farmer Awareness", title: "Pollution in water, pollution in soil — today our earth is endangered by farming poisons" },
+    { eyebrow: "Organic Farming, Healthy Living", title: "Keep organic in mind, keep the effort sincere — a healthy earth keeps us all healthy" }
+  ];
+  var slider = document.getElementById("homeSlider");
+  var eyebrowEl = document.getElementById("sliderCapEyebrow");
+  var titleEl = document.getElementById("sliderCapTitle");
+  if (!slider || !eyebrowEl || !titleEl) return;
+  function setCaption(i){
+    var c = captions[i];
+    if (!c) return;
+    eyebrowEl.textContent = c.eyebrow;
+    titleEl.textContent = c.title;
+  }
+  slider.addEventListener("slide.bs.carousel", function(e){ setCaption(e.to); });
+})();
+</script>
 </body>
 </html>
