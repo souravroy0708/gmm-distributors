@@ -5,8 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Details | GMM Distributors Private Limited</title>
 <meta name="description" id="meta-description" content="Learn more about our agricultural products from GMM DISTRIBUTORS PRIVATE LIMITED. Contact us for product availability, specifications and enquiries.">
-<!-- TODO: replace with your live domain once the site is deployed -->
-<link rel="canonical" id="canonical-link" href="https://www.gmmdistributors.in/product-detail.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="GMM Distributors Private Limited">
+<meta name="publisher" content="GMM Distributors Private Limited">
+<meta name="geo.region" content="IN-WB">
+<meta name="geo.placename" content="Arambagh, Hooghly, West Bengal">
+<meta name="geo.position" content="22.8800;87.7800">
+<meta name="ICBM" content="22.8800, 87.7800">
+<link rel="canonical" id="canonical-link" href="https://gmmdistributors.xyz/product-detail.html">
 <link rel="icon" type="image/jpeg" href="images/gmm-logo.jpg">
 <link rel="apple-touch-icon" href="images/gmm-logo.jpg">
 
@@ -15,15 +22,15 @@
 <meta property="og:site_name" content="GMM Distributors Private Limited">
 <meta property="og:title" id="og-title" content="Product Details | GMM Distributors Private Limited">
 <meta property="og:description" id="og-description" content="Learn more about our agricultural products from GMM Distributors Private Limited. Contact us for product availability, specifications and enquiries.">
-<meta property="og:url" id="og-url" content="https://www.gmmdistributors.in/product-detail.html">
-<meta property="og:image" content="https://www.gmmdistributors.in/images/gmm-logo.jpg">
+<meta property="og:url" id="og-url" content="https://gmmdistributors.xyz/product-detail.html">
+<meta property="og:image" content="https://gmmdistributors.xyz/images/gmm-logo.jpg">
 <meta property="og:locale" content="en_IN">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" id="twitter-title" content="Product Details | GMM Distributors Private Limited">
 <meta name="twitter:description" id="twitter-description" content="Learn more about our agricultural products from GMM Distributors Private Limited.">
-<meta name="twitter:image" content="https://www.gmmdistributors.in/images/gmm-logo.jpg">
+<meta name="twitter:image" content="https://gmmdistributors.xyz/images/gmm-logo.jpg">
 
 <meta name="theme-color" content="#2B3A24">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +42,17 @@
   "@type": "Product",
   "name": "Agricultural Product",
   "brand": {"@type": "Organization", "name": "GMM Distributors Private Limited"}
+}
+</script>
+<script type="application/ld+json" id="breadcrumb-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gmmdistributors.xyz/"},
+    {"@type": "ListItem", "position": 2, "name": "Products", "item": "https://gmmdistributors.xyz/products.html"},
+    {"@type": "ListItem", "position": 3, "name": "Product Details", "item": "https://gmmdistributors.xyz/product-detail.html"}
+  ]
 }
 </script>
 <style>
@@ -255,15 +273,16 @@ footer a:hover{color:var(--wheat-2);}
           <h5 class="mb-0">GMM Distributors Pvt. Ltd.</h5>
         </div>
         <p class="mono" style="color:var(--wheat-2);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;">Organic Farming, Healthy Living</p>
-        <p class="mt-2" style="max-width:34ch;">Quality-focused agricultural products and practical farming solutions.</p>
+        <p class="mt-2" style="max-width:34ch;">Agricultural products supplier and organic manure distributor based in Arambagh, Hooghly, West Bengal.</p>
       </div>
       <div class="col-lg-3">
         <h5>Quick Links</h5>
         <ul class="list-unstyled mt-3">
-          <li class="mb-2"><a href="index.html">Home</a></li>
+          <li class="mb-2"><a href="/">Home</a></li>
           <li class="mb-2"><a href="products.html">Products</a></li>
           <li class="mb-2"><a href="vision-mission.html">Vision &amp; Mission</a></li>
           <li class="mb-2"><a href="leadership.html">Leadership</a></li>
+          <li class="mb-2"><a href="gallery.html">Gallery</a></li>
           <li class="mb-2"><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -279,7 +298,7 @@ footer a:hover{color:var(--wheat-2);}
     </div>
     <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
       <span>CIN: U24299WB2020PTC240755</span>
-      <span>© 2026 GMM DISTRIBUTORS PRIVATE LIMITED. All Rights Reserved.</span>
+  <span>© 2026 GMM DISTRIBUTORS PRIVATE LIMITED. All Rights Reserved. Website designed &amp; developed by Sourav</span>
     </div>
   </div>
 </footer>
@@ -551,9 +570,10 @@ function renderProduct() {
   // SEO: keep description, canonical, Open Graph/Twitter tags and structured data in sync with the product shown
   const pageTitle = p.name + " | GMM Distributors Private Limited";
   const pageDesc = p.overview + " Contact GMM Distributors Private Limited for availability and specifications.";
-  const pageUrl = "https://www.gmmdistributors.in/product-detail.html?id=" + p.id;
-  const ogImage = primaryImage ? "https://www.gmmdistributors.in/" + primaryImage.src : "https://www.gmmdistributors.in/images/gmm-logo.jpg";
+  const pageUrl = "https://gmmdistributors.xyz/product-detail.html?id=" + p.id;
+  const ogImage = primaryImage ? "https://gmmdistributors.xyz/" + primaryImage.src : "https://gmmdistributors.xyz/images/gmm-logo.jpg";
 
+  document.title = pageTitle;
   document.getElementById('meta-description').setAttribute('content', pageDesc);
   document.getElementById('canonical-link').setAttribute('href', pageUrl);
   document.getElementById('og-title').setAttribute('content', pageTitle);
@@ -571,12 +591,23 @@ function renderProduct() {
     "category": p.category,
     "description": p.overview,
     "url": pageUrl,
-    "brand": { "@type": "Organization", "name": "GMM Distributors Private Limited" }
+    "brand": { "@type": "Organization", "name": "GMM Distributors Private Limited", "@id": "https://gmmdistributors.xyz/#organization" },
+    "manufacturer": { "@id": "https://gmmdistributors.xyz/#organization" }
   };
   if (p.images && p.images.length) {
-    jsonLd.image = p.images.map(img => "https://www.gmmdistributors.in/" + img.src);
+    jsonLd.image = p.images.map(img => "https://gmmdistributors.xyz/" + img.src);
   }
   document.getElementById('product-jsonld').textContent = JSON.stringify(jsonLd);
+
+  document.getElementById('breadcrumb-jsonld').textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gmmdistributors.xyz/"},
+      {"@type": "ListItem", "position": 2, "name": "Products", "item": "https://gmmdistributors.xyz/products.html"},
+      {"@type": "ListItem", "position": 3, "name": p.name, "item": pageUrl}
+    ]
+  });
 
   const related = PRODUCTS.filter(x => x.id !== p.id).slice(0, 3);
   document.getElementById('related-products').innerHTML = related.map(r => `
