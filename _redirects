@@ -1,8 +1,2 @@
-# Canonical host: force the bare apex domain (matches every canonical tag
-# and JSON-LD @id on the site), so www and non-www never split SEO signal
-https://www.gmmdistributors.xyz/*  https://gmmdistributors.xyz/:splat  301!
-http://www.gmmdistributors.xyz/*   https://gmmdistributors.xyz/:splat  301!
-http://gmmdistributors.xyz/*       https://gmmdistributors.xyz/:splat  301!
-
 # Normalize index.html to root
 /index.html    /    301
