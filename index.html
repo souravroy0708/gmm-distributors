@@ -237,9 +237,7 @@ section{padding:5.5rem 0;}
 .home-slider .slide-visual{position:relative;width:100%;height:clamp(260px,40vw,460px);overflow:hidden;background:#12180F;}
 .home-slider .slide-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(20px) brightness(.55) saturate(1.15);transform:scale(1.18);}
 .home-slider .slide-fg{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;display:block;}
-.home-slider .slider-badge{position:absolute;top:1.25rem;left:1.25rem;z-index:5;background:rgba(241,238,225,.95);color:var(--forest);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:.5rem .9rem;border-radius:var(--radius);border:1px solid var(--line);}
-.home-slider .gallery-pill{position:absolute;top:1.25rem;right:1.25rem;z-index:5;background:var(--wheat);color:#1C2416;font-weight:700;font-size:.8rem;padding:.55rem 1.1rem;border-radius:30px;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .18s ease, background .18s ease;}
-.home-slider .gallery-pill:hover{background:var(--wheat-2);transform:translateY(-2px);color:#1C2416;}
+
 .home-slider .carousel-indicators{margin-bottom:.85rem;gap:.35rem;z-index:5;}
 .home-slider .carousel-indicators [data-bs-target]{background-color:rgba(255,255,255,.55);width:22px;height:4px;border-radius:2px;opacity:1;border:0;transition:background-color .2s ease, width .2s ease;}
 .home-slider .carousel-indicators [data-bs-target].active{background-color:var(--wheat-2);width:34px;}
@@ -251,9 +249,6 @@ section{padding:5.5rem 0;}
 .home-slider .cap-eyebrow{margin:0;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soil);font-weight:600;}
 .home-slider .cap-title{margin:.3rem 0 0;font-family:'Bitter',serif;font-weight:700;color:var(--forest);font-size:1.02rem;line-height:1.35;}
 @media (max-width:575.98px){
-  .home-slider .slider-badge{font-size:.6rem;padding:.4rem .65rem;}
-  .home-slider .gallery-pill{font-size:.72rem;padding:.45rem .8rem;}
-  .home-slider .gallery-pill svg{width:11px;height:11px;}
   .home-slider .slider-caption-bar{padding:.85rem 1.15rem;}
   .home-slider .cap-title{font-size:.92rem;}
 }
@@ -307,12 +302,7 @@ footer a:hover{color:var(--wheat-2);}
 <section class="home-slider">
   <div class="container">
     <div class="slider-frame">
-      <span class="slider-badge">Est. 2020 &middot; West Bengal</span>
-      <a href="gallery.html" class="gallery-pill" aria-label="View our full photo and video gallery">
-        View Full Gallery
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <div id="homeSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="1000">
+      <div id="homeSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000"
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#homeSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
