@@ -75,7 +75,8 @@
       "founder": { "@id": "https://gmmdistributors.xyz/#chikur-ray" },
       "employee": { "@id": "https://gmmdistributors.xyz/#chikur-ray" },
       "sameAs": [
-        "https://www.youtube.com/@gmmdistributorspvtltd9320"
+        "https://www.youtube.com/@gmmdistributorspvtltd9320",
+        "https://share.google/tNRJnsGTD1C9c1QHf"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -126,6 +127,7 @@
       "name": "Chikur Kumar Ray",
       "jobTitle": "Founder & Director",
       "description": "Chikur Kumar Ray is the Founder & Director of GMM Distributors Private Limited, an agricultural products and organic manure supplier based in Arambagh, Hooghly, West Bengal.",
+      "image": "https://gmmdistributors.xyz/images/chikur-ray-visiting-card-front.jpg",
       "worksFor": { "@id": "https://gmmdistributors.xyz/#organization" },
       "url": "https://gmmdistributors.xyz/contact.html",
       "email": "ray.chikur@gmail.com",
@@ -301,6 +303,24 @@ footer a:hover{color:var(--wheat-2);}
 .wa-float:hover{background:var(--forest-2);color:#fff;}
 .skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--forest);color:#fff;padding:.75rem 1.25rem;border-radius:0 0 4px 0;font-weight:600;}
 .skip-link:focus{left:0;}
+
+/* ===== responsive polish ===== */
+.about-cta{align-items:stretch;}
+.about-cta .btn{text-align:center;}
+@media (max-width:575.98px){
+  section{padding:3.25rem 0;}
+  .about-cta{flex-direction:column;}
+  .about-cta .btn{width:100%;margin:0;}
+  .hero .d-flex.flex-wrap.gap-3{flex-direction:column;align-items:stretch;}
+  .hero .d-flex.flex-wrap.gap-3 .btn{width:100%;text-align:center;}
+  h1{word-break:break-word;}
+  .gmm-nav .navbar-brand span{font-size:1.05rem;}
+}
+@media (min-width:576px) and (max-width:991.98px){
+  .about-cta .btn{flex:0 0 auto;}
+}
+img{max-width:100%;height:auto;}
+.table-responsive-wrap{overflow-x:auto;}
 </style>
 </head>
 <body>
@@ -349,31 +369,31 @@ footer a:hover{color:var(--wheat-2);}
           <div class="carousel-item active">
             <div class="slide-visual">
               <img class="slide-bg" src="images/slider/slide-1.jpg" alt="" aria-hidden="true">
-              <img class="slide-fg" src="images/slider/slide-1.jpg" alt="GMM Distributors featured in Bardhaman Jyoti newspaper for a farmer training and awareness event">
+              <img class="slide-fg" src="images/slider/slide-1.jpg" alt="Bengali organic farming awareness message from GMM Distributors encouraging healthy soil, healthy food and healthy living">
             </div>
           </div>
           <div class="carousel-item">
             <div class="slide-visual">
               <img class="slide-bg" src="images/slider/slide-2.jpg" alt="" aria-hidden="true">
-              <img class="slide-fg" src="images/slider/slide-2.jpg" alt="Bengali organic farming awareness message from GMM Distributors — think organic, stay healthy">
+              <img class="slide-fg" src="images/slider/slide-2.jpg" alt="Bengali farming awareness message from GMM Distributors promoting debt-free farmers, chemical-free food and a farmer-suicide-free India">
             </div>
           </div>
           <div class="carousel-item">
             <div class="slide-visual">
               <img class="slide-bg" src="images/slider/slide-3.jpg" alt="" aria-hidden="true">
-              <img class="slide-fg" src="images/slider/slide-3.jpg" alt="GMM Distributors message — debt-free farmers, chemical-free food, farmer-suicide-free India">
+              <img class="slide-fg" src="images/slider/slide-3.jpg" alt="Bengali organic farming message from GMM Distributors promoting healthy farmers, healthy families and a healthy environment">
             </div>
           </div>
           <div class="carousel-item">
             <div class="slide-visual">
               <img class="slide-bg" src="images/slider/slide-4.jpg" alt="" aria-hidden="true">
-              <img class="slide-fg" src="images/slider/slide-4.jpg" alt="GMM Distributors message — organic farmer, smiling face, organic farming is the assurance of good health">
+              <img class="slide-fg" src="images/slider/slide-4.jpg" alt="Save the soil Bengali agricultural awareness message from GMM Distributors featuring a farmer working in the field">
             </div>
           </div>
           <div class="carousel-item">
             <div class="slide-visual">
               <img class="slide-bg" src="images/slider/slide-5.jpg" alt="" aria-hidden="true">
-              <img class="slide-fg" src="images/slider/slide-5.jpg" alt="Save the soil awareness message from GMM Distributors, featuring a farmer in the field">
+              <img class="slide-fg" src="images/slider/slide-5.jpg" alt="Bengali agricultural awareness message from GMM Distributors explaining that pesticides are not medicine and can harm soil and farming">
             </div>
           </div>
           <div class="carousel-item">
@@ -385,13 +405,13 @@ footer a:hover{color:var(--wheat-2);}
           <div class="carousel-item">
             <div class="slide-visual">
               <img class="slide-bg" src="images/slider/slide-7.jpg" alt="" aria-hidden="true">
-              <img class="slide-fg" src="images/slider/slide-7.jpg" alt="GMM Distributors message on pollution in water and soil affecting vegetables and fruits">
+              <img class="slide-fg" src="images/slider/slide-7.jpg" alt="Bengali environmental farming message from GMM Distributors about pollution affecting water, soil, vegetables and fruits">
             </div>
           </div>
           <div class="carousel-item">
             <div class="slide-visual">
               <img class="slide-bg" src="images/slider/slide-8.jpg" alt="" aria-hidden="true">
-              <img class="slide-fg" src="images/slider/slide-8.jpg" alt="GMM Distributors message — a healthy environment through organic farming, together">
+              <img class="slide-fg" src="images/slider/slide-8.jpg" alt="GMM Distributors featured in Bardhaman Jyoti newspaper for a farmer outreach and agricultural product awareness event">
             </div>
           </div>
         </div>
@@ -460,8 +480,11 @@ footer a:hover{color:var(--wheat-2);}
         <p class="text-muted">GMM DISTRIBUTORS PRIVATE LIMITED is an India-based agricultural products company incorporated in 2020 and registered with the Registrar of Companies, Kolkata.</p>
         <p class="text-muted">Based in Arambagh, Hooghly, West Bengal, the company operates in the chemicals and agricultural products sector, supplying organic manure, bio-fertilizers and related products, and is developing its distribution portfolio to serve diverse customer requirements across India.</p>
         <p class="text-muted mb-4">Our approach is built around quality, responsible product use, customer service and long-term partnerships. GMM Distributors was founded by <strong>Chikur Kumar Ray</strong>, who leads the company as Founder &amp; Director.</p>
-        <a href="vision-mission.html" class="btn btn-outline-seed">Learn More About Us</a>
-        <a href="leadership.html" class="btn btn-seed ms-2">Meet Chikur Kumar Ray, Founder &amp; Director</a>
+        <div class="d-flex flex-wrap gap-3 about-cta">
+          <a href="vision-mission.html" class="btn btn-outline-seed">Learn More About Us</a>
+          <a href="leadership.html" class="btn btn-seed">Meet Chikur Kumar Ray, Founder &amp; Director</a>
+        </div>
+        <p class="mt-3 mb-0"><a href="leadership.html#visiting-card" class="small fw-semibold">View Chikur Kumar Ray's digital visiting card →</a></p>
       </div>
       <div class="col-lg-6">
         <div class="row g-4">
@@ -559,8 +582,8 @@ footer a:hover{color:var(--wheat-2);}
         </div>
       </div>
     </div>
-    <div class="text-center mt-5">
-      <a href="products.html" class="btn btn-seed me-2">Explore Products</a>
+    <div class="d-flex flex-wrap justify-content-center gap-3 mt-5">
+      <a href="products.html" class="btn btn-seed">Explore Products</a>
       <a href="contact.html" class="btn btn-outline-seed">Talk to Our Team</a>
     </div>
   </div>
