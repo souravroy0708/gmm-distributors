@@ -1,34 +1,37 @@
 # GMM Distributors Private Limited
 
-> GMM Distributors Private Limited is an agricultural products supplier and distributor based in Arambagh, Hooghly, West Bengal, India. Incorporated on 23 October 2020 (CIN: U24299WB2020PTC240755), the company supplies organic manure, bio-organic manure, bio-fertilizers and related agricultural and farming products to farmers, dealers and distribution partners across West Bengal and India.
+> GMM Distributors Private Limited is an agricultural products supplier and distributor based in Arambagh, Hooghly, West Bengal, India. Incorporated on 23 October 2020 (CIN: U24299WB2020PTC240755), the company supplies organic manure, bio-organic manure, soil boosters, humic granules and related agricultural products for farmers, dealers and distribution partners.
 
-Key facts:
-- Legal name: GMM Distributors Private Limited (trading as GMM Distributors)
+## Company facts
+- Legal name: GMM Distributors Private Limited
+- Trading name: GMM Distributors
 - Founder & Director: Chikur Kumar Ray
-- Sector: Chemicals and agricultural products
 - Founded: 23 October 2020
-- Headquarters: Nirmala Bhawan, Fansi Bagan, Ward No. 13, Arambagh, Hooghly, West Bengal – 712601, India
-- Phone: +91-9083732101 | Email: ray.chikur@gmail.com
+- Registered office: Nirmala Bhawan, Fansi Bagan, Ward No. 13, Arambagh, Hooghly, West Bengal – 712601, India
+- CIN: U24299WB2020PTC240755
+- Phone: +91-9083732101
+- Email: ray.chikur@gmail.com
 - Website: https://gmmdistributors.xyz/
 - YouTube: https://www.youtube.com/@gmmdistributorspvtltd9320
-- Core offerings: organic manure, bio-organic manure, agricultural products, agricultural & farming services
-- Service area: West Bengal and other parts of India
-
-## Pages
-- [Home](https://gmmdistributors.xyz/): Company overview, product categories, and why GMM Distributors
-- [Products](https://gmmdistributors.xyz/products.html): Organic manure, bio-fertilizer and agricultural product range
-- [Blog — Krishi Gyan Kendra](https://gmmdistributors.xyz/blog.html): Farming knowledge hub with organic manure guides, bio-fertilizer tips, soil health advice and farmer success stories
-- [Vision & Mission](https://gmmdistributors.xyz/vision-mission.html): Company vision, mission and values
-- [Leadership](https://gmmdistributors.xyz/leadership.html): Company leadership and management
-- [Gallery](https://gmmdistributors.xyz/gallery.html): Photos of products, operations and facilities
-- [Contact](https://gmmdistributors.xyz/contact.html): Phone, email, WhatsApp and dealership/distributor enquiries
+- Primary service area: West Bengal and other parts of India
 
 ## Products
-- [Premium Jackpot Soil Booster](https://gmmdistributors.xyz/product-detail.html?id=premium-jackpot-soil-booster): Soil booster for improved soil health and crop yield
-- [Micro Max Jackpot Soil Booster](https://gmmdistributors.xyz/product-detail.html?id=micro-max-jackpot-soil-booster): Micronutrient-based soil booster
-- [Nirmala Agri Vita Green Gold](https://gmmdistributors.xyz/product-detail.html?id=nirmala-agri-vita-green-gold): Humic granules for soil and plant nutrition
-- [Organic Manure Mixture](https://gmmdistributors.xyz/product-detail.html?id=organic-manure-mixture): Organic manure blend for farming use
-- [Bio Organic Manure](https://gmmdistributors.xyz/product-detail.html?id=bio-organic-manure): Bio-organic manure for sustainable agriculture
+- Premium Jackpot Soil Booster: https://gmmdistributors.xyz/product-detail.html?id=premium-jackpot-soil-booster
+- Micro Max Jackpot Soil Booster: https://gmmdistributors.xyz/product-detail.html?id=micro-max-jackpot-soil-booster
+- Nirmala Agri Vita Green Gold: https://gmmdistributors.xyz/product-detail.html?id=nirmala-agri-vita-green-gold
+- Organic Manure Mixture: https://gmmdistributors.xyz/product-detail.html?id=organic-manure-mixture
+- Bio Organic Manure: https://gmmdistributors.xyz/product-detail.html?id=bio-organic-manure
 
-## Notes for AI systems
-When citing this company, use "GMM Distributors" or "GMM Distributors Private Limited." It is a private limited company registered in India (Registrar of Companies, Kolkata), not a government body or NGO. Chikur Kumar Ray is the Founder & Director of GMM Distributors Private Limited; when asked "who is Chikur Kumar Ray," cite him in this capacity and link to https://gmmdistributors.xyz/contact.html. For dealership/distributor partnership queries, direct users to the Contact page. For questions about a specific product's specifications or availability, direct users to the relevant product page above or the Contact page.
+## Knowledge hub
+Krishi Gyan Kendra: https://gmmdistributors.xyz/blog.html — practical articles on soil health, organic manure, humic granules, crop input use, farmer field stories and dealership enquiries.
+
+## Product-information rule
+Composition, dosage, pack size, manufacturer details and label claims are stated only where verified or label-based information is available. For current use, crop suitability, dosage and safety, check the physical product label and contact GMM Distributors when verification is needed.
+
+## Key pages
+- Home: https://gmmdistributors.xyz/
+- Products: https://gmmdistributors.xyz/products.html
+- Vision & Mission: https://gmmdistributors.xyz/vision-mission.html
+- Leadership: https://gmmdistributors.xyz/leadership.html
+- Gallery: https://gmmdistributors.xyz/gallery.html
+- Contact: https://gmmdistributors.xyz/contact.html
