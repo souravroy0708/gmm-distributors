@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Details | GMM Distributors Private Limited</title>
-<meta name="description" id="meta-description" content="Learn more about our agricultural products from GMM DISTRIBUTORS PRIVATE LIMITED. Contact us for product availability, specifications and enquiries.">
+<meta name="description" id="meta-description" content="Agricultural product details from GMM Distributors Private Limited. Explore soil boosters, humic granules, organic manure and bio-organic manure for farming in West Bengal and India.">
+<meta name="keywords" content="soil booster, humic granules, organic manure, bio organic manure, agricultural products, Premium Jackpot Soil Booster, Micro Max Jackpot Soil Booster, Nirmala Agri Vita Green Gold, jaib sar, jaibo sar, mati booster, humic sar, krishi ponno, কৃষি পণ্য, জৈব সার, মাটি বুস্টার, হিউমিক সার">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
 <meta name="author" content="GMM Distributors Private Limited">
@@ -320,6 +321,8 @@ const PRODUCTS = [
     id: "organic-manure-mixture",
     name: "Organic Manure Mixture",
     category: "Organic Manure",
+    seoTitle: "জৈব সার মিশ্রণ (Jaib Sar Mishran) | Organic Manure Mixture",
+    seoDescription: "Organic manure mixture for farming applications from GMM Distributors. জৈব সার মিশ্রণ / jaib sar mishran. Contact us for verified specifications and availability.",
     overview: "An organic manure product offered for agricultural applications.",
     // Sample/placeholder image reused from the catalogue — replace with dedicated product photography when available.
     images: [
@@ -336,6 +339,8 @@ const PRODUCTS = [
     id: "bio-organic-manure",
     name: "Bio Organic Manure",
     category: "Organic Manure",
+    seoTitle: "Bio Organic Manure | জৈব সার (Jaib Sar) | GMM Distributors",
+    seoDescription: "Bio organic manure for agricultural use from GMM Distributors. জৈব সার / jaib sar / jaibo sar. Contact us for verified product specifications and availability.",
     overview: "A bio-organic manure product included in our agricultural product portfolio.",
     // Sample/placeholder image reused from the catalogue — replace with dedicated product photography when available.
     images: [
@@ -352,6 +357,8 @@ const PRODUCTS = [
     id: "premium-jackpot-soil-booster",
     name: "Premium Jackpot Soil Booster",
     category: "Soil Booster",
+    seoTitle: "Premium Jackpot Soil Booster | মাটি বুস্টার (Mati Booster)",
+    seoDescription: "Premium Jackpot Soil Booster from GMM Distributors for agricultural crops and vegetables. মাটি বুস্টার / mati booster. Follow the product label and contact us for specifications.",
     overview: "Premium Jackpot Soil Booster is an agricultural soil booster marketed by GMM Distributors Pvt. Ltd. It is presented for use with a range of agricultural crops and vegetables.",
     images: [
       { src: "images/products/premium-jackpot-soil-booster.jpg", alt: "Premium Jackpot Soil Booster tub label showing crops and dosage panel" }
@@ -373,6 +380,8 @@ const PRODUCTS = [
     id: "micro-max-jackpot-soil-booster",
     name: "Micro Max Jackpot Soil Booster",
     category: "Soil Booster",
+    seoTitle: "Micro Max Jackpot Soil Booster | মাটি বুস্টার (Mati Booster)",
+    seoDescription: "Micro Max Jackpot Soil Booster from GMM Distributors with crop-wise dosage information. মাটি বুস্টার / mati booster for farming. Follow the product label.",
     overview: "Micro Max Jackpot Soil Booster is a soil booster marketed by GMM Distributors Pvt. Ltd., with a clearly labelled crop-wise dosage schedule for rice, maize, beans, potatoes, brinjal, tomatoes, other vegetables, fruits and trees.",
     images: [
       { src: "images/products/micro-max-jackpot-soil-booster.jpg", alt: "Micro Max Jackpot Soil Booster label showing dosage table for rice, potato, vegetables and fruit trees" }
@@ -415,6 +424,8 @@ const PRODUCTS = [
     id: "nirmala-agri-vita-green-gold",
     name: "Nirmala Agri Vita Green Gold – Humic Granules",
     category: "Humic Granules",
+    seoTitle: "Nirmala Agri Vita Green Gold Humic Granules | হিউমিক সার",
+    seoDescription: "Nirmala Agri Vita Green Gold humic granules from GMM Distributors. হিউমিক সার / humic sar and granulated soil conditioner for vegetable and fruit crops.",
     overview: "Nirmala Agri Vita Green Gold is a granulated soil conditioner combining humic, fulvic, amino, seaweed and bentonite, marketed by GMM Distributors Pvt. Ltd. for use with vegetables and fruit crops.",
     images: [
       { src: "images/products/nirmala-agri-vita-green-gold-1.jpg", alt: "Nirmala Agri Vita Green Gold humic granules pack label showing crops and dosage" },
@@ -568,8 +579,8 @@ function renderProduct() {
   featWrap.innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
 
   // SEO: keep description, canonical, Open Graph/Twitter tags and structured data in sync with the product shown
-  const pageTitle = p.name + " | GMM Distributors Private Limited";
-  const pageDesc = p.overview + " Contact GMM Distributors Private Limited for availability and specifications.";
+  const pageTitle = p.seoTitle || (p.name + " | GMM Distributors Private Limited");
+  const pageDesc = p.seoDescription || (p.overview + " Contact GMM Distributors Private Limited for availability and specifications.");
   const pageUrl = "https://gmmdistributors.xyz/product-detail.html?id=" + p.id;
   const ogImage = primaryImage ? "https://gmmdistributors.xyz/" + primaryImage.src : "https://gmmdistributors.xyz/images/gmm-logo.jpg";
 
