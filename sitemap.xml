@@ -54,34 +54,50 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gmmdistributors.xyz/product-detail.html?id=premium-jackpot-soil-booster</loc>
+    <loc>https://gmmdistributors.xyz/product-premium-jackpot-soil-booster.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://gmmdistributors.xyz/images/products/premium-jackpot-soil-booster.jpg</image:loc>
+      <image:title>Premium Jackpot Soil Booster</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://gmmdistributors.xyz/product-detail.html?id=micro-max-jackpot-soil-booster</loc>
+    <loc>https://gmmdistributors.xyz/product-micro-max-jackpot-soil-booster.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://gmmdistributors.xyz/images/products/micro-max-jackpot-soil-booster.jpg</image:loc>
+      <image:title>Micro Max Jackpot Soil Booster</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://gmmdistributors.xyz/product-detail.html?id=nirmala-agri-vita-green-gold</loc>
+    <loc>https://gmmdistributors.xyz/product-nirmala-agri-vita-green-gold.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://gmmdistributors.xyz/images/products/nirmala-agri-vita-green-gold-1.jpg</image:loc>
+      <image:title>Nirmala Agri Vita Green Gold Humic Granules</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://gmmdistributors.xyz/images/products/nirmala-agri-vita-green-gold-2.jpg</image:loc>
+      <image:title>Nirmala Agri Vita Green Gold Humic Granules — composition and batch details</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://gmmdistributors.xyz/product-detail.html?id=organic-manure-mixture</loc>
+    <loc>https://gmmdistributors.xyz/product-organic-manure-mixture.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://gmmdistributors.xyz/product-detail.html?id=bio-organic-manure</loc>
+    <loc>https://gmmdistributors.xyz/product-bio-organic-manure.html</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://gmmdistributors.xyz/vision-mission.html</loc>
