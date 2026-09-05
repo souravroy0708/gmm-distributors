@@ -17,6 +17,7 @@ Key facts:
 ## Pages
 - [Home](https://gmmdistributors.xyz/): Company overview, product categories, and why GMM Distributors
 - [Products](https://gmmdistributors.xyz/products.html): Organic manure, bio-fertilizer and agricultural product range
+- [Blog — Krishi Gyan Kendra](https://gmmdistributors.xyz/blog.html): Farming knowledge hub with organic manure guides, bio-fertilizer tips, soil health advice and farmer success stories
 - [Vision & Mission](https://gmmdistributors.xyz/vision-mission.html): Company vision, mission and values
 - [Leadership](https://gmmdistributors.xyz/leadership.html): Company leadership and management
 - [Gallery](https://gmmdistributors.xyz/gallery.html): Photos of products, operations and facilities

@@ -77,7 +77,7 @@
       "founder": { "@id": "https://gmmdistributors.xyz/#chikur-ray" },
       "employee": { "@id": "https://gmmdistributors.xyz/#chikur-ray" },
       "sameAs": [
-        "https://share.google/tNRJnsGTD1C9c1QHf"
+        "https://share.google/ABjoHRxjbtqP1gmdS"
       ]
     },
     {
@@ -208,6 +208,15 @@ footer h5{color:#fff;font-family:'Bitter',serif;}
 footer a{color:#D9D6C2;text-decoration:none;}
 footer a:hover{color:var(--wheat-2);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.15);margin-top:2.25rem;padding-top:1.25rem;font-size:.82rem;color:#B9B6A2;}
+.footer-leader{border-top:1px solid rgba(255,255,255,0.12);padding-top:1.1rem;}
+.footer-leader-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--wheat-2),var(--wheat));color:var(--forest);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Bitter',serif;font-size:.95rem;flex-shrink:0;}
+.footer-leader-name{color:#fff;font-weight:600;margin-bottom:.1rem;}
+.footer-leader-role{font-size:.78rem;color:var(--wheat-2);margin-bottom:.35rem;}
+.footer-card-link{color:var(--wheat-2);font-size:.8rem;font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.footer-card-link:hover{color:#fff;}
+.footer-google-btn{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:.5rem .95rem;border-radius:999px;font-size:.8rem;font-weight:600;text-decoration:none;margin-top:1rem;transition:background .15s ease;}
+.footer-google-btn:hover{background:rgba(255,255,255,0.16);color:#fff;}
+.footer-google-btn svg{flex-shrink:0;}
 .wa-float{position:fixed;right:20px;bottom:20px;z-index:1050;background:var(--forest);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.25);border:2px solid var(--wheat-2);}
 .wa-float:hover{background:var(--forest-2);color:#fff;}
 
@@ -240,6 +249,7 @@ footer a:hover{color:var(--wheat-2);}
       <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="vision-mission.html">Vision &amp; Mission</a></li>
         <li class="nav-item"><a class="nav-link" href="leadership.html">Leadership</a></li>
         <li class="nav-item"><a class="nav-link " href="gallery.html">Gallery</a></li>
@@ -316,13 +326,13 @@ footer a:hover{color:var(--wheat-2);}
         <h2 class="mb-3">View GMM Distributors on Google</h2>
         <p class="text-muted mb-4">Scan the QR code with your phone camera, or tap the button below to open our Google Business Profile and share your honest experience on Google.</p>
         <div class="qr-card d-inline-block">
-          <a href="https://share.google/tNRJnsGTD1C9c1QHf" target="_blank" rel="noopener noreferrer" aria-label="View GMM Distributors Private Limited on Google">
+          <a href="https://share.google/ABjoHRxjbtqP1gmdS" target="_blank" rel="noopener noreferrer" aria-label="View GMM Distributors Private Limited on Google">
             <img src="images/google-business-qr.png" alt="Scan to view GMM Distributors Private Limited on Google and leave a review" loading="lazy" width="300" height="300">
           </a>
           <p class="mono small mt-3 mb-0 text-muted">Official Google Business Profile QR</p>
         </div>
         <div class="mt-4">
-          <a href="https://share.google/tNRJnsGTD1C9c1QHf" class="btn btn-seed" target="_blank" rel="noopener noreferrer">
+          <a href="https://share.google/ABjoHRxjbtqP1gmdS" class="btn btn-seed" target="_blank" rel="noopener noreferrer">
             View GMM Distributors on Google
           </a>
         </div>
@@ -479,12 +489,27 @@ footer a:hover{color:var(--wheat-2);}
         </div>
         <p class="mono" style="color:var(--wheat-2);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;">Organic Farming, Healthy Living</p>
         <p class="mt-2" style="max-width:34ch;">Agricultural products supplier and organic manure distributor based in Arambagh, Hooghly, West Bengal.</p>
+
+        <div class="footer-leader d-flex align-items-center gap-3 mt-3">
+          <div class="footer-leader-avatar" aria-hidden="true">CR</div>
+          <div>
+            <p class="footer-leader-name mb-0">Chikur Kumar Ray</p>
+            <p class="footer-leader-role mb-0">Founder &amp; Director</p>
+            <a href="leadership.html#visiting-card" class="footer-card-link">View digital visiting card →</a>
+          </div>
+        </div>
+
+        <a href="https://share.google/ABjoHRxjbtqP1gmdS" target="_blank" rel="noopener" class="footer-google-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Find us on Google · Rate &amp; Review
+        </a>
       </div>
       <div class="col-lg-3">
         <h5>Quick Links</h5>
         <ul class="list-unstyled mt-3">
           <li class="mb-2"><a href="/">Home</a></li>
           <li class="mb-2"><a href="products.html">Products</a></li>
+          <li class="mb-2"><a href="blog.html">Blog</a></li>
           <li class="mb-2"><a href="vision-mission.html">Vision &amp; Mission</a></li>
           <li class="mb-2"><a href="leadership.html">Leadership</a></li>
           <li class="mb-2"><a href="gallery.html">Gallery</a></li>
